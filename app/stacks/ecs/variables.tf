@@ -48,7 +48,7 @@ variable "ec2_tags" {
 variable "ec2_ecs_target_group_name" {
   description = "The Name of the Target Group"
   type        = string
-  default     = "ec2_ecs_target_group"
+  default     = "ec2-ecs-target-group"
 }
 
 variable "ec2_ecs_target_group_port" {
@@ -60,11 +60,31 @@ variable "ec2_ecs_target_group_port" {
 variable "ec2_ecs_target_group_protocol" {
   description = "The Protocol of the Target Group"
   type        = string
-  default     = "http"
+  default     = "HTTP"
 }
 
 variable "ec2_ecs_target_group_target_type" {
   description = "The Target Type of the Target Group"
   type        = string
   default     = "ip"
+}
+
+variable "ec2_vpc_security_group_id" {
+  description = "The VPC Security Group ID"
+  type        = string
+}
+
+variable "ec2_subnets" {
+  description = "The Selected subnets"
+  type        = list(string)
+}
+
+variable "ec2_vpc_id" {
+  description = "The VPC ID"
+  type        = string
+}
+
+variable "ec2_vpc_security_groups" {
+  description = "The VPC Security Groups"
+  type        = string
 }

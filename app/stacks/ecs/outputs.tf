@@ -1,13 +1,13 @@
 # This is where you put your outputs declaration
 # This is where you put your outputs declaration
 output "ecs_lt_id" {
-  value = aws_launch_template.ecs_lt.id
+  value = module.ec2.ecs_lt_id
 }
 
 output "tg_arn" {
-  value = aws_lb_target_group.ecs_tg.arn
+  value = module.ec2.tg_arn
 }
 
 output "tg" {
-  value = aws_lb_target_group.ecs_tg
+  value = module.ec2.tg
 }

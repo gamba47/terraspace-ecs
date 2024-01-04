@@ -8,19 +8,17 @@ output "security_group_id" {
 }
 
 output "subnet_public_id_a" {
-  value = module.network.aws_subnet.my_private_subnet_a.id
+  value = module.network.subnet_public_id_a
 }
 
-//output "subnet_public_id_b" {
-//  value = module.network.my_public_subnet_b.id
-//}
-//
-//output "subnet_id_a" {
-//  value = module.network.my_private_subnet_a.id
-//}
-//
-//output "subnet_id_b" {
-//  value = module.network.my_private_subnet_b.id
-//}
-//
-//
+output "subnet_public_id_b" {
+  value = module.network.subnet_public_id_b
+}
+
+output "subnet_id_a" {
+  value = module.network.subnet_id_a
+}
+
+output "subnet_id_b" {
+  value = module.network.subnet_id_b
+}

@@ -4,7 +4,7 @@ resource "aws_launch_template" "ecs_lt" {
   instance_type = var.ec2_instance_type
 
   key_name               = var.ec2_key_name
-  vpc_security_group_ids = [data.terraform_remote_state.vpc.outputs.security_group_id]
+  vpc_security_group_ids = [var.ec2_vpc_security_group_id]
   iam_instance_profile {
     name = var.ec2_iam_instance_profile_name
   }
@@ -29,8 +29,8 @@ resource "aws_lb" "ecs_alb" {
   name               = var.ec2_ecs_alb_name
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [data.terraform_remote_state.vpc.outputs.security_group_id]
-  subnets            = [data.terraform_remote_state.vpc.outputs.subnet_id_a, data.terraform_remote_state.vpc.outputs.subnet_id_b]
+  security_groups    = [var.ec2_vpc_security_groups]
+  subnets            = var.ec2_subnets
 
   tags = var.ec2_tags
 }
@@ -41,7 +41,7 @@ resource "aws_lb_target_group" "ecs_tg" {
   port        = var.ec2_ecs_target_group_port
   protocol    = var.ec2_ecs_target_group_protocol
   target_type = var.ec2_ecs_target_group_target_type
-  vpc_id      = data.terraform_remote_state.vpc.outputs.vpc_id
+  vpc_id      = var.ec2_vpc_id
 
   health_check {
     path = "/"

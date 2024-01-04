@@ -13,4 +13,8 @@ module "ec2" {
   ec2_ecs_target_group_port        = var.ec2_ecs_target_group_port
   ec2_ecs_target_group_protocol    = var.ec2_ecs_target_group_protocol
   ec2_ecs_target_group_target_type = var.ec2_ecs_target_group_target_type
+  ec2_vpc_security_group_id        = var.ec2_vpc_security_group_id
+  ec2_subnets                      = var.ec2_subnets
+  ec2_vpc_security_groups          = var.ec2_vpc_security_groups
+  ec2_vpc_id                       = var.ec2_vpc_id
 }
